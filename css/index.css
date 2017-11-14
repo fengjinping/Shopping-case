@@ -1,0 +1,844 @@
+
+
+/* 全屏定位的图标 */
+.enter {
+	width: 101px;
+	height: 101px;
+	position: fixed;
+	z-index: 1;
+	left: 50%;
+	top: 60px;
+	margin-left: 550px;
+}
+
+.down {
+	width: 174px;
+	height: 61px;
+	position: fixed;
+	z-index: 1;
+	left: 50%;
+	margin-left: 480px;
+	bottom: 50px;
+	animation: down 0.7s linear  infinite alternate;
+	cursor: pointer;
+}
+
+
+/* 全屏定位图标动画效果 */
+@keyframes down {
+	from {
+		bottom: 50px;
+	}
+
+	to {
+	   bottom: 30px;
+	}
+}
+
+/* 第一屏样式 */
+.screen01 {
+	 width: 100%;
+	 height: 100%;
+	 position: relative;
+	 background: url("../img/01-bg.png") no-repeat bottom;
+}
+.screen01 .fly {
+	 width: 470px;
+	 height: 50px;
+	 position: absolute;
+	 left: 50%;
+	 top: 50px;
+	 margin-left: -100px;
+	 animation: screen01_fly 0.7s linear infinite alternate;
+}
+.screen01 .sofa {
+	 width: 134px;
+	 height: 147px;
+	 position: absolute;
+	 left: 50%;
+	 top: 150px;
+	 margin-left: -230px;
+
+	 animation: screen01_sofa 0.8s linear infinite alternate;
+}
+.screen01 .goods  {
+	 width: 824px;
+	 height: 274px;
+	 position: absolute;
+	 left: 50%;
+	 margin-left: -420px;
+	 bottom: 170px;
+}
+
+/* 第一屏动画  */
+@keyframes  screen01_fly {
+	 from{
+	 	top: 50px;
+	 }
+	 to {
+	 	top: 70px;
+	 }
+}
+
+
+@keyframes screen01_sofa {
+	 from {
+		top: 150px;
+	 }
+
+	 to {
+		top: 170px;
+	 }
+}
+
+
+
+/* 第二屏样式 */
+.screen02 {
+	 width: 100%;
+	 height: 100%;
+	 position: relative;
+	 background: url("../img/02-bg.png") no-repeat bottom;
+}
+
+.screen02  .text {
+	  width: 363px;
+	  height: 27px;
+	  position: absolute;
+	  left: 50%;
+	  top: 100px;
+	  transform: translateX(-50%);
+
+}
+
+.screen02 .sofa {
+	 width: 222px;
+	 height: 45px;
+	 position: absolute;
+	 left: 50%;
+	 margin-left: 400px;
+	 top: 300px;
+	 opacity: 0;
+}
+
+.screen02 .sofa .keyImg {
+	 position: absolute;
+	 left: 80px;
+	 top: 6px;
+	 opacity: 0;
+	 transition: all 1s linear 2s;
+}
+.screen02 .sofalist {
+	 width: 441px;
+	 height: 218px;
+	 position: absolute;
+	 left: 50%;
+	 bottom: 210px;
+	 transform-origin: right bottom;
+	 transform: translateX(-50%) scale(0);
+}
+
+/* 第二屏隐藏的沙发 */
+.screen02 .h_sofa  {
+	 position: absolute;
+	 left: 50%;
+	 top: 200px;
+	 margin-left: -160px;
+	 transform: scale(0.5);
+	 opacity: 0;
+	 z-index: 1000;
+}
+
+/* 从第二屏到第三屏动画 */
+.screen02 .h_sofa.animate {
+	animation: screen02_to_screen03 1.5s linear;
+}
+@keyframes screen02_to_screen03 {
+	form {
+		opacity: 1;
+		margin-left: -160px;
+		transform: scale(0.5) translateY(0px);
+	}
+	to {
+	    opacity: 1;
+	    margin-left: -238px;
+	    transform: scale(1) translateY(700px);
+	}
+}
+
+
+/* 第二屏动画: 当移动到第二屏的时候要执行动画; */
+
+/* 首先搜索框先移动到电脑屏幕中间，然后出现文字 */
+.select .screen02 .sofa {
+	animation: screen02_sofa 4s linear  forwards;
+}
+
+.select .screen02 .sofa .keyImg {
+    opacity: 1;
+}
+
+/* 然后沙发列表放大到正常 */
+.select .screen02 .sofalist {
+	animation: screen02_sofalist 1s linear 3s forwards;
+}
+
+@keyframes screen02_sofa {
+	 from {
+	    opacity: 0;
+	    margin-left: 400px;
+	    transform: scale(1);
+	 }
+	 /* 第一秒 */
+	 25% {
+	 	opacity: 1;
+	 	top: 300px;
+	    margin-left: -100px;
+	    transform: scale(1);
+	 }
+	 /* 第三秒 */
+	 75% {
+		opacity: 1;
+		top: 300px;
+	    margin-left: -100px;
+	    transform: scale(1);
+	 }
+	 /* 第4秒 */
+	 to {
+	    opacity: 1;
+	    top: 175px;
+	    margin-left: 83px;
+	    transform: scale(0.8);
+	 }
+}
+
+@keyframes screen02_sofalist {
+	 from {
+       transform: translateX(-50%) scale(0);
+	 }
+
+	 to {
+		transform: translateX(-50%) scale(1);
+	 }
+}
+
+
+
+
+/* 第三屏样式 */
+.screen03 {
+	 width: 100%;
+	 height: 100%;
+	 position: relative;
+	 background: url("../img/03-bg.png") no-repeat bottom;
+}
+
+.screen03 .change {
+	 width: 296px;
+	 height: 131px;
+	 position: absolute;
+	 left: 50%;
+	 margin-left: 40px;
+	 bottom: 200px;
+}
+.screen03 .change img {
+	 position: absolute;
+}
+
+.screen03 .change .change02Img {
+	 display: none;
+
+	 transition: all 1s linear 1.5s;
+}
+
+.screen03 .btns {
+	 width: 218px;
+	 height: 58px;
+	 position: absolute;
+	 left: 50%;
+	 margin-left: 40px;
+	 bottom: 136px;
+}
+
+.screen03 .btns img {
+	 position: absolute;
+}
+
+.screen03 .btns .cart02Img {
+	 display: none;
+
+	 transition: all 1s linear 1.5s;
+}
+.screen03 .sofa {
+	 width: 207px;
+	 height: 166px;
+	 position: absolute;
+	 left: 50%;
+	 margin-left: -238px;
+	 bottom: 260px;
+	 display: none;
+	 transition: all 1s linear 1.5s;
+}
+
+/* 第三屏隐藏的斜沙发 */
+.screen03  .h_sofa {
+	 width: 204px;
+	 height: 198px;
+	 position: absolute;
+	 left: 50%;
+	 margin-left: -230px;
+	 bottom: 250px;
+	 opacity: 0;
+	 z-index: 1000;
+}
+
+
+
+/* 斜沙发从第3屏掉到第4屏 */
+.screen03  .h_sofa.animate {
+
+   animation: screen03_to_screen04  1s linear;
+}
+
+@keyframes screen03_to_screen04 {
+	form {
+	  opacity: 1;
+	}
+
+	to {
+	  opacity: 1;
+	  transform: translateY(663px) translateX(187px);
+	}
+}
+
+
+
+/* 第三屏动画 */
+.select .screen03 .sofa {
+	display: block;
+}
+
+.select  .screen03 .change02Img {
+	display: block;
+}
+
+.select  .screen03 .cart02Img {
+	display: block;
+}
+
+
+/* 第四屏样式 */
+.screen04 {
+	 width: 100%;
+	 height: 100%;
+	 position: relative;
+	 background: url("../img/04-bg.png") no-repeat bottom;
+}
+
+.screen04 .cloud {
+	 width: 882px;
+	 height: 120px;
+	 position: absolute;
+	 left: 50%;
+	 transform: translateX(-60%);
+
+	 animation: screen04_cloud 6s linear infinite alternate;
+}
+@keyframes screen04_cloud {
+	 from {
+
+	 }
+	 to {
+	 	transform: translateX(80px);
+	 }
+}
+
+.screen04 .text {
+	 width: 429px;
+	 height: 31px;
+	 position: absolute;
+	 left: 50%;
+	 top: 120px;
+	 transform: translateX(-50%);
+}
+.screen04 .text img {
+	 position: absolute;
+}
+
+.screen04 .h_textImg {
+	 display: none;
+}
+
+.screen04 .address{
+	 width: 283px;
+	 height: 270px;
+	 position: absolute;
+	 left: 50%;
+	 top: 200px;
+	 transform: translateX(-50%);
+
+}
+
+.screen04 .address .h-addressImg01 {
+	display: none;
+}
+
+.screen04 .address .h-addressImg{
+   position: absolute;
+   left: 50%;
+   top: 60px;
+   margin-left: -80px;
+   display: none;
+}
+
+.screen04 .cart {
+	width: 407px;
+	height: 346px;
+	position: absolute;
+	left: 50%;
+	bottom: 50px;
+	transform: translateX(-50%);
+	z-index: 1001;
+}
+.screen04 .cart img {
+	 position: absolute;
+}
+.screen04 .cart .cartImg {
+	 z-index: 1;
+}
+
+.screen04 .cart .sofaImg {
+	 left: 160px;
+	 top: -50px;
+	 display: none;
+}
+
+
+/* 第四屏动画 */
+.screen04 .cart.animate {
+  animation: screen04_cart 2s linear forwards;
+}
+@keyframes screen04_cart {
+	 from {
+		transform: translateX(-50%);
+	 }
+
+	 to {
+		transform: translateX(1000px);
+	 }
+}
+
+/* 第五屏样式 */
+.screen05 {
+	 width: 100%;
+	 height: 100%;
+	 position: relative;
+	 background: url("../img/05-bg.png") bottom;
+}
+.screen05 .text {
+	 width: 514px;
+	 height: 56px;
+	 position: absolute;
+	 top: 50px;
+	 left: 50%;
+	 margin-left: -500px;
+
+}
+
+.screen05 .card {
+	 width: 358px;
+	 height: 221px;
+	 position: absolute;
+	 left: 50%;
+	 top: 230px;
+	 margin-left: -500px;
+}
+
+.screen05 .card  img {
+	 position: absolute;
+}
+
+.screen05 .card .orderImg {
+	left: 130px;
+	top: 10px;
+	transition: all 1s 1s linear;
+}
+
+.screen05 .card .orderImg.animate {
+    top: -70px;
+}
+
+
+.screen05 .card .sofaImg {
+	left: 90px;
+	bottom: -146px;
+	opacity: 0;
+	transform: translateY(-700px);
+}
+
+.screen05 .card .sofaImg.animate {
+	animation: screen05_sofa 2s linear forwards;
+}
+
+@keyframes screen05_sofa {
+	 form{
+		 opacity: 1;
+	 }
+	 50% {
+		 opacity: 1;
+		transform: translateY(-80px);
+	 }
+
+	 to {
+		 opacity: 1;
+		 transform: none;
+	 }
+}
+
+/* 从第5屏掉到第6屏动画 */
+.screen05 .card .sofaImg.down_img {
+	animation: screen05_to_screen06 1.5s linear;
+}
+
+@keyframes screen05_to_screen06{
+	form {
+		opacity: 1;
+		bottom: -146px;
+		transform: none;
+	}
+	to {
+	   opacity: 1;
+	   transform: translateY(380px) scale(0.3);
+	   z-index: 1000;
+	}
+}
+
+.screen05 .mouse {
+	 width: 205px;
+	 height: 100%;
+	 left: 50%;
+	 margin-left: 200px;
+	 position: absolute;
+	 overflow: hidden;
+}
+
+.screen05 .mouse img {
+	 position: absolute;
+	 left: 56px;
+	 bottom: 200px;
+}
+
+.screen05 .mouse .mouse02Img  {
+	 display: none;
+}
+.screen05 .mouse .handImg {
+	bottom: -380px;
+    left: 30px;
+    transition: all 1s linear;
+}
+
+/* 第五屏动画 */
+.select .screen05 .mouse .handImg {
+   bottom: 0px;
+}
+
+
+/* 第六屏样式 */
+.screen06 {
+	 width: 100%;
+	 height: 100%;
+	 background: url("../img/06-bg.png") no-repeat bottom;
+}
+.select .screen06  {
+	animation: screen06 2s linear 3.5s forwards;
+}
+
+@keyframes screen06 {
+	 from {
+		background-position: bottom;
+	 }
+
+	 to {
+	   background-position: right bottom;
+	 }
+}
+
+
+
+.screen06 .cloud {
+	 width: 878px;
+	 height: 107px;
+	 position: absolute;
+	 left: 50%;
+	 margin-left: -500px;
+}
+.screen06 .cloud img {
+	 position: absolute;
+}
+.select .screen06 .cloud img:first-child {
+	animation: screen06_cloud 10s linear alternate infinite;
+}
+.select .screen06 .cloud img:last-child {
+	animation: screen06_cloud 8s linear alternate infinite;
+}
+
+@keyframes screen06_cloud {
+	 from {
+		margin-left: -500px;
+	 }
+	 to {
+	    margin-left: 300px;
+	 }
+}
+
+.screen06 .text {
+	 width: 308px;
+	 height: 59px;
+	 position: absolute;
+	 left: 50%;
+	 top: 107px;
+	 margin-left: -500px;
+}
+
+.screen06 .text img {
+	position: absolute;
+}
+.screen06 .text img:last-child {
+	 opacity: 0;
+
+	 transition: all 1s linear 8.5s;
+}
+
+.select .screen06 .text img:last-child {
+	 opacity: 1;
+}
+
+.screen06 .packge {
+    width: 123px;
+    height: 85px;
+    position: absolute;
+    left: 50%;
+    top: 170px;
+    margin-left: -700px;
+    transform: scale(1);
+    transition: margin-left 1.5s linear,
+    			top 2s linear 1.5s,
+    			transform 2s 1.5s;
+}
+
+.select .screen06 .packge {
+	margin-left: -370px;
+	top: 550px;
+	transform: scale(0.5);
+}
+
+
+.screen06 .car {
+	width: 221px;
+	height: 122px;
+	position: absolute;
+	left: 50%;
+	bottom: 0px;
+	margin-left: -400px;
+}
+.screen06 .car img {
+	 position: absolute;
+}
+.screen06 .car .buyImg {
+	 right: -20px;
+	 top: -50px;
+}
+.screen06 .car .addressImg {
+	 right: -20px;
+	 top: -50px;
+	 opacity: 0;
+	 transition: all 1s linear 3.5s;
+}
+
+.select .screen06 .car .addressImg {
+	opacity: 1;
+}
+
+.screen06 .car .workImg {
+	 bottom: 0px;
+	 left: 0px;
+	 transform-origin: left bottom;
+	 transform: scale(0);
+	 transition: transform 1s linear 5.5s,
+	 			 bottom 1s 6.5s linear,
+	 			 left   1s 7.5s linear;
+}
+.select .screen06 .car .workImg {
+	transform: scale(1);
+	bottom: 110px;
+	left: 221px;
+}
+.screen06 .car  .sayImg  {
+	 opacity: 0;
+	 top: -442px;
+	 left: 370px;
+	 transition: all 1s linear 8.5s;
+}
+
+.select .screen06 .car .sayImg {
+	 opacity: 1;
+}
+
+
+.screen06  .people {
+    width: 106px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    margin-left: 293px;
+    bottom: 116px;
+}
+
+.screen06 .people img {
+	position: absolute;
+}
+.screen06 .people .doorImg {
+	opacity: 0;
+
+	transition: all 1s 9.5s linear;
+}
+
+.screen06 .people .personImg {
+	 bottom: 0px;
+	 right: 0px;
+	 transform-origin: right bottom;
+	 transform: scale(0);
+	 transition: transform 1s linear 10s,
+	 			 right  1s linear 10s;
+}
+.select .screen06 .people .doorImg {
+	 opacity: 1;
+}
+
+.select .screen06 .people .personImg  {
+	 transform: scale(1);
+	 right: 110px;
+}
+
+
+
+/* 第七屏样式 */
+.screen07 {
+	 width: 100%;
+	 height: 100%;
+	 position: relative;
+	 background: url("../img/07_bg.png") no-repeat bottom;
+}
+
+.screen07  .start {
+	 height: 13px;
+	 position: absolute;
+	 left: 50%;
+	 top: 204px;
+	 margin-left: -292px;
+}
+.screen07  .start img {
+	 float: left;
+	 margin-right: 6px;
+	 opacity: 0;
+}
+
+.screen07 .text {
+	 width: 72px;
+	 height: 40px;
+	 position: absolute;
+	 left: 50%;
+	 margin-left: -300px;
+	 top: 240px;
+
+	 transform-origin: left bottom;
+
+	 transform: scale(0);
+
+	 transition: ;
+}
+
+.select .screen07 .text {
+	animation: screen07_scale 1s linear 3.5s forwards;
+}
+@keyframes screen07_scale {
+	 from {
+	   transform: scale(0);
+	 }
+
+	 75% {
+		transform: scale(1);
+	 }
+
+	 to {
+	 	transform: scale(0.8);
+	 }
+}
+
+.select .screen07 .start.animate img:first-child {
+	animation: screen07_start 0.5s linear forwards;
+}
+.select .screen07 .start.animate img:nth-child(2) {
+	animation: screen07_start 0.5s 1s linear forwards;
+}
+.select .screen07 .start.animate img:nth-child(3) {
+	animation: screen07_start 0.5s 1.5s linear forwards;
+}
+.select .screen07 .start.animate img:nth-child(4) {
+	animation: screen07_start 0.5s 2s linear forwards;
+}
+.select .screen07 .start.animate img:nth-child(5) {
+	animation: screen07_start 0.5s 2.5s linear forwards;
+}
+
+@keyframes screen07_start {
+	 from {
+		
+	 }
+
+	 to {
+		opacity: 1;
+	 }
+}
+
+
+
+/* 第八屏样式 */
+.screen08 {
+	 width: 100%;
+	 height: 100%;
+	 position: relative;
+	 background: url("../img/08-bg.png");
+}
+
+.screen08 .btn {
+	 width: 389px;
+	 height: 160px;
+	 position: absolute;
+	 left: 50%;
+	 top: 130px;
+	 transform: translate(-50%);
+}
+.screen08 .btn img {
+	 position: absolute;
+}
+.screen08 .btn img:last-child {
+	 display: none;
+}
+
+.screen08 .more {
+	 width: 105px;
+	 height: 34px;
+	 position: absolute;
+	 left: 50%;
+	 margin-left: 250px;
+	 top: 230px;
+}
+
+.screen08 .hand {
+	 width: 170px;
+	 position: absolute;
+	 left: 50%;
+	 transform: translate(-50%);
+	 bottom: 0px;
+}
